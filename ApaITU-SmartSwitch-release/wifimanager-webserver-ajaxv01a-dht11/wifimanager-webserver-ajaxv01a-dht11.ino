@@ -1,4 +1,33 @@
+/*
+ESP01 web based smartswitch, the code from 
 
+https://youtu.be/KBCjkvtpqPQ
+
+1) compile and upload the sketch
+2) connect to SSID ApaITU-SmartSwitch
+3) open the wifimanager dashboard : http://192.168.4.1
+4) set the ssid & password of your access point
+5) check on the serial monitor for ip address of esp01
+6) open the http://ip-address/
+7) the page will contain temperatur & humidity from dht11 sensor 
+and toggle switch to turn on and off led/relay/conmected on gpio0
+
+note :
+switch on gpio2 of esp01
+dht11 data pin on gpio0
+
+mind the gpio0 & gpio0 are active low, to turn on led set digitalWrite(pin,LOW)
+turn off : digitalWrite(pin,HIGH)
+
+#Educational Purpose only, the smartswitch use optoTriac & Transformerless psu
+The Transformerless psu are non isolated power suply, dont to or connect the micro
+controller to pc while AC Main connected to the board. The reverse polarity of power line
+could demage your usb port. For Detail you coule watch the video for the schematic of
+the board....
+
+#ApaITU : https://youtube.com/@ApaITU
+
+*/
 #include <WiFiManager.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPClient.h>
